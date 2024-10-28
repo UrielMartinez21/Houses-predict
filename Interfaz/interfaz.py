@@ -14,7 +14,7 @@ def pantalla_inicio():
     frame3.place(relx=0, rely=0.6, relwidth=0.65, relheight=0.4)
     frame4.place(relx=0.65, rely=0.6, relwidth=0.35, relheight=0.4)
 
-    ventana.after(100, lambda: agregar_imagen(frame1, "imagenes/imagen.jpeg"))
+    ventana.after(100, lambda: agregar_imagen(frame1, "Interfaz/assets/imagen.jpeg"))
 
     ventana.after(100, lambda: agregar_texto(frame2, """\n\nBienvenido a 'Price4House', esta aplicación te ayuda a obtener el avalúo de tu inmueble
     mediante inteligencia artificial.\n\n
@@ -27,7 +27,7 @@ def pantalla_inicio():
     ventana.after(100, lambda: agregar_boton(frame3, "Centro de Ayuda", 2))
     ventana.after(100, lambda: agregar_boton(frame3, "Manual de Usuario", 3))
 
-    ventana.after(100, lambda: agregar_imagen(frame4, "imagenes/imagen.jpeg"))
+    ventana.after(100, lambda: agregar_imagen(frame4, "Interfaz/assets/imagen.jpeg"))
 
 #Pantalla 2
 def empezar_avaluo():
@@ -59,10 +59,10 @@ def empezar_avaluo():
     Label(frame5, text="Ingresa la imagen de la habitación principal:", font=("Helvetica", 12), bg="blue", anchor="nw").place(relx=0.15, rely=0.52, relwidth=0.35)
     button_img_cocina = Button(frame5, text="Seleccionar archivo", command=obtener_img).place(relx=0.5, rely=0.52, relwidth=0.35)
 
-    Label(frame5, text="Ingresa la imagen de la habitación principal:", font=("Helvetica", 12), bg="blue", anchor="nw").place(relx=0.15, rely=0.59, relwidth=0.35)
+    Label(frame5, text="Ingresa la imagen del baño:", font=("Helvetica", 12), bg="blue", anchor="nw").place(relx=0.15, rely=0.59, relwidth=0.35)
     button_img_cocina = Button(frame5, text="Seleccionar archivo", command=obtener_img).place(relx=0.5, rely=0.59, relwidth=0.35)
 
-    Label(frame5, text="Ingresa la imagen de la habitación principal:", font=("Helvetica", 12), bg="blue", anchor="nw").place(relx=0.15, rely=0.66, relwidth=0.35)
+    Label(frame5, text="Ingresa la imagen frontal del inmueble:", font=("Helvetica", 12), bg="blue", anchor="nw").place(relx=0.15, rely=0.66, relwidth=0.35)
     button_img_cocina = Button(frame5, text="Seleccionar archivo", command=obtener_img).place(relx=0.5, rely=0.66, relwidth=0.35)
 
     Button(frame5, text="Generar Avalúo", bg="green", command=resultado_avaluo).place(relx=0.4, rely=0.74, relwidth=0.2)
@@ -175,14 +175,14 @@ def agregar_boton(frame, texto, funcion):
         button_frameEA = Button(frame, text=texto, command=empezar_avaluo)
         button_frameEA.pack()
     elif funcion == 2:
-        img_boton = Image.open("imagenes/chat.png")
+        img_boton = Image.open("Interfaz/assets/chat.png")
         img_boton = img_boton.resize((30, 30), Image.LANCZOS)
         img_boton = ImageTk.PhotoImage(img_boton)
         button_frameCA = Button(frame, text=texto, image=img_boton, bg='orange', compound=LEFT, command=mostrar_chat)
         button_frameCA.image = img_boton
         button_frameCA.pack(pady=10)
     else:
-        img_boton = Image.open("imagenes/manual.png")
+        img_boton = Image.open("Interfaz/assets/manual.png")
         img_boton = img_boton.resize((30, 30), Image.LANCZOS)
         img_boton = ImageTk.PhotoImage(img_boton)
         button_frameCA = Button(frame, text=texto, image=img_boton, bg='orange', compound=LEFT, command=empezar_avaluo)
@@ -192,7 +192,7 @@ def agregar_boton(frame, texto, funcion):
 ventana = Tk()
 ventana.geometry("1000x700")
 ventana.title("Avalúo de Inmuebles")
-ventana.iconbitmap("imagenes/icono.ico")
+ventana.iconbitmap("Interfaz/assets/icono.ico")
 
 #Pantalla 1
 frame1 = Frame(ventana)

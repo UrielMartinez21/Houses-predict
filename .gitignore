@@ -1,6 +1,11 @@
 # Carpetas de imagenes
 Houses Dataset/
 Imagenes/
+venv/
+
+# Códigos prueba
+Interfaz/prueba_1.py
+Interfaz/prueba_2.py
 
 # Entornos virtuales
 .venv
