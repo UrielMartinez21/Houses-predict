@@ -9,3 +9,6 @@ Interfaz/prueba_2.py
 
 # Entornos virtuales
 .venv
+
+# Modelos
+models/*.pth
