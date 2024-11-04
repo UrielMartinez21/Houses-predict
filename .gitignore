@@ -11,4 +11,4 @@ Interfaz/prueba_2.py
 .venv
 
 # Modelos
-models/*.pth
+models/
