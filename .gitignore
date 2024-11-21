@@ -1,7 +1,7 @@
 # Carpetas de imagenes
 Houses Dataset/
 Imagenes/
-venv/
+myvenv/
 
 # Códigos prueba
 Interfaz/prueba_1.py
