@@ -70,7 +70,7 @@ def preprocess_numeric_features(features: list, scaler_path: str) -> torch.Tenso
 def normalizar_inmueble(kitchen_path, bedroom_path, bathroom_path, frontal_path, numeric_features):
     # Define the paths
     ruta_modelo = 'C:/Users/adria/Documents/Python/TT2/Houses-predict/models/'
-    nombre_modelo = 'model_resnet50_l2_lambda9.pth'
+    nombre_modelo = 'model_resnet50_l2_lambda10.pth'
 
     # Load model
     model = torch.load(f"{ruta_modelo}{nombre_modelo}", map_location=torch.device('cpu'))
