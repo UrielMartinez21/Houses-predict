@@ -1,6 +1,5 @@
 import threading
 import tkinter as tk
-from tkinter import messagebox
 from PIL import Image as PilImage
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
@@ -11,7 +10,6 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.spinner import Spinner
 from kivy.graphics import Color, Rectangle
 from kivy.uix.popup import Popup
-from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
 from torchvision import models
 from torch import nn
@@ -530,7 +528,9 @@ class AvaluoApp(App):
         self.root.clear_widgets()
         layout = ColoredBoxLayout(orientation='vertical')
 
-        layout_encabezado = ColoredBoxLayout(orientation='vertical', size_hint=(1, 0.5), spacing=10)
+        layout.add_widget(Label(size_hint=(1, 0.1)))
+
+        layout_encabezado = ColoredBoxLayout(orientation='vertical', size_hint=(1, 0.7), spacing=10)
 
         btn_inicio = Button(text="Inicio", background_color=(0, 0.5, 0.5, 1), size_hint=(None, None), size=(150, 40), pos_hint={'x': 0.01, 'y': 0.01})
         btn_inicio.bind(on_release=self.pantalla_inicio)
@@ -547,8 +547,12 @@ class AvaluoApp(App):
 
             layout_encabezado.add_widget(resultado)
 
+            layout_encabezado.add_widget(Label(size_hint=(1, 0.4)))
+
             info = Label(text="El precio estimado del inmueble es de:\n $ " + str(self.resultado) + " USD", font_size=28, halign="center")
             layout_encabezado.add_widget(info)
+            layout_encabezado.add_widget(Label(size_hint=(1, 0.1)))
+
         else:
             resultado = Label(text="Error al generar el avalúo", font_size=28, halign="center", size_hint=(0.5, None), pos_hint={'x': 0.25})
             with resultado.canvas.before:
@@ -558,9 +562,17 @@ class AvaluoApp(App):
             resultado.bind(size=lambda instance, value: setattr(rect_fondo, 'size', instance.size),
                         pos=lambda instance, value: setattr(rect_fondo, 'pos', instance.pos))
 
-            layout_encabezado.add_widget(resultado)
+            layout_encabezado.add_widget(resultado) 
+            
+            layout_encabezado.add_widget(Label(size_hint=(1, 0.4)))
 
-        linea_blanca = Label(size_hint=(1, None), size=(0, 10))
+            info = Label(text="", font_size=28, halign="center")
+            layout_encabezado.add_widget(info)
+            layout_encabezado.add_widget(Label(size_hint=(1, 0.1)))
+
+        layout.add_widget(layout_encabezado)
+
+        linea_blanca = Label(size_hint=(1, 0.05), size=(0, 10))
         with linea_blanca.canvas.before:
             Color(1, 1, 1, 1)
             rect_fondo_linea = Rectangle(size=linea_blanca.size, pos=linea_blanca.pos)
@@ -568,8 +580,10 @@ class AvaluoApp(App):
         linea_blanca.bind(size=lambda instance, value: setattr(rect_fondo_linea, 'size', instance.size),
                           pos=lambda instance, value: setattr(rect_fondo_linea, 'pos', instance.pos))
 
-        layout_encabezado.add_widget(linea_blanca)
-        layout.add_widget(layout_encabezado)
+        #layout_encabezado.add_widget(linea_blanca)
+        layout.add_widget(linea_blanca)
+
+        layout_encabezado.add_widget(Label())
 
         layout_2 = ColoredBoxLayout(orientation='vertical', size_hint=(1, 0.2))
         layout.add_widget(layout_2)
@@ -586,7 +600,7 @@ class AvaluoApp(App):
 
             layout.add_widget(layout_reporte)
 
-        layout.add_widget(Label(size_hint=(None, 0.1)))
+            layout.add_widget(Label(size_hint=(None, 0.1)))
 
         layout_editar = ColoredBoxLayout(orientation='vertical', size_hint=(1, 0.3))
 
